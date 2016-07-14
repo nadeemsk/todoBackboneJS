@@ -83,6 +83,10 @@ var TodoListView = Backbone.View.extend({
     todos = this.model.attributes.todos;
     var t1 = {"todos":[{"_id":"5784a3508aea5f117c8119b6","listId":"5784a3448aea5f117c8119b5","text":"shapoo","editing":false,"done":true,"__v":0},{"_id":"5784a3548aea5f117c8119b7","listId":"5784a3448aea5f117c8119b5","text":"bucket","editing":false,"done":true,"__v":0},{"_id":"5784a35f8aea5f117c8119b8","listId":"5784a3448aea5f117c8119b5","text":"spoons","editing":false,"done":false,"__v":0},{"_id":"5784a3638aea5f117c8119b9","listId":"5784a3448aea5f117c8119b5","text":"pillows","editing":false,"done":false,"__v":0},{"_id":"5784c7da9097f43684d2253f","listId":"5784a3448aea5f117c8119b5","text":"Another none do","editing":false,"done":false,"__v":0}]};
 
+    if (!todos || !todos.length) {
+      return that;
+    }
+
     var context = $.ajax({
       url: baseURL + 'todos',
       data: { todos: todos },
