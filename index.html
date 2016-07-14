@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Todo Backbone JS</title>
+
+    <link rel="stylesheet" href="assets/css/style.css" media="screen" title="no title" charset="utf-8">
+  </head>
+  <body>
+
+    <div class="container">
+      <div class="content" id="content">
+        <div class="add-list">
+        </div>
+        <div id="app">
+        </div>
+      </div>
+    </div>
+
+    <script type="text/javascript" src="assets/js/config.js"></script>
+
+    <!-- Libraries -->
+    <script type="text/javascript" src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script type="text/javascript" src="bower_components/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="bower_components/backbone/backbone-min.js"></script>
+
+    <!-- Templates -->
+    <script type="text/template" id="todo-list-template">
+      <div class="title"  listid="<%= _id %>" id="title-<%= _id %>">
+        <p><%= title %></p>
+      </div>
+      <div class="todos">
+      </div>
+      <div class="add">
+        <input type="text" id="add-<%= _id %>" listid="<%=
+                          _id %>" class="add-todo" value="" placeholder="Add new todo">
+      </div>
+    </script>
+    <script type="text/template" id="todo-template">
+        <input type="checkbox" class="check" todoid="<%= _id %>" <% if(done){ %>
+          checked
+          <% } %> />
+        <span class="text"><%= text %></span>
+    </script>
+
+    <!-- Model -->
+    <script type="text/javascript" src="assets/js/models/todo.js"></script>
+    <script type="text/javascript" src="assets/js/models/todo-collection.js"></script>
+    <script type="text/javascript" src="assets/js/models/todo-list.js"></script>
+    <script type="text/javascript" src="assets/js/models/todo-list-collection.js"></script>
+
+    <!-- Views -->
+    <script type="text/javascript" src="assets/js/views/add-list.js"></script>
+    <script type="text/javascript" src="assets/js/views/todo.js"></script>
+    <script type="text/javascript" src="assets/js/views/todo-list.js"></script>
+    <script type="text/javascript" src="assets/js/views/todo-list-collection.js"></script>
+
+    <!-- router -->
+    <script type="text/javascript" src="assets/js/router.js"></script>
+
+  </body>
+</html>

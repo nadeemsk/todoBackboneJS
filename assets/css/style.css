@@ -1,0 +1,136 @@
+html, body {
+  margin: 0px;
+  height: 100%;
+}
+
+.container {
+  width: 100%;
+  min-height: 100%;
+  color: #333;
+  background: #eee;
+  font-family: BlinkMacSystemFont;
+}
+
+.content {
+  padding: 20px;
+}
+
+#heading {
+  color: #333;
+  text-align: center;
+  margin: 0px;
+  padding: 10px;
+}
+
+.todoList {
+  display: inline-block;
+  height: 400px;
+  width: 250px;
+  background: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  margin: 10px;
+}
+
+.todoList .title {
+  text-align: center;
+  margin: 0px;
+  padding: 0px 10px;
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  width: 100%;
+  border-bottom: 1px solid #ddd;
+  background: #4267da;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+
+}
+
+.todoList .title p {
+  font-weight: normal;
+  color: #fff;
+  font-size: 20px;
+  margin: 0px;
+  padding: 15px 0px;
+  text-transform: capitalize;
+}
+
+.todoList .title .title-edit {
+  font-weight: bold;
+  font-size: 20px;
+  margin: 0px;
+  margin: 11px 0px;
+  text-align: center;
+  outline: none;
+  border: none;
+  border-radius: 2px;
+  padding: 4px 0px;
+}
+
+.todoList .todos {
+  height: 310px;
+  padding: 10px;
+  margin-top: 54px;
+  overflow-x: auto;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.todoList .todos .todo {
+  padding: 5px;
+}
+
+.todo .check {
+  display: inline;
+  padding: 5px;
+}
+
+.todo .text {
+  font-size: 15px;
+  font-weight: normal;
+  color: #555;
+  padding: 0px 7px;
+  text-transform: capitalize;
+}
+
+.todoList .add {
+  position: absolute;
+  bottom: 1px;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+  border-top: 1px solid #eee;
+}
+
+.todoList .add input {
+  width: 100%;
+  height: 36px;
+  border: none;
+  padding: 15px;
+  font-size: 15px;
+  outline: none;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+.add-list {
+  text-align: center;
+  width: 100%;
+  margin-bottom: 20px;
+}
+
+.add-list button {
+  cursor: pointer;
+  background: #4267da;
+  color: #fff;
+  font-size: 14px;
+  border-radius: 2px;
+  padding: 10px 20px;
+  border: 1px solid #325bd8;
+  font-weight: normal;
+}
