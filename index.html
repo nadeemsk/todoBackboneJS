@@ -28,6 +28,7 @@
     <script type="text/template" id="todo-list-template">
       <div class="title"  listid="<%= _id %>" id="title-<%= _id %>">
         <p><%= title %></p>
+        <input type="text" class="title-edit" listid="<%= _id %>" id="list-title-edit-<%= _id %>"/>
       </div>
       <div class="todos">
       </div>
@@ -41,11 +42,11 @@
           checked
           <% } %> />
         <span class="text"><%= text %></span>
+        <input type="text" class="text-input" todoid="<%= _id %>" />
     </script>
 
     <!-- Model -->
     <script type="text/javascript" src="assets/js/models/todo.js"></script>
-    <script type="text/javascript" src="assets/js/models/todo-collection.js"></script>
     <script type="text/javascript" src="assets/js/models/todo-list.js"></script>
     <script type="text/javascript" src="assets/js/models/todo-list-collection.js"></script>
 

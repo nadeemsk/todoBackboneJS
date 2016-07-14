@@ -52,7 +52,7 @@ html, body {
 .todoList .title p {
   font-weight: normal;
   color: #fff;
-  font-size: 20px;
+  font-size: 17px;
   margin: 0px;
   padding: 15px 0px;
   text-transform: capitalize;
@@ -68,6 +68,7 @@ html, body {
   border: none;
   border-radius: 2px;
   padding: 4px 0px;
+  display: none;
 }
 
 .todoList .todos {
@@ -90,11 +91,20 @@ html, body {
 }
 
 .todo .text {
-  font-size: 15px;
+  font-size: 13px;
   font-weight: normal;
   color: #555;
   padding: 0px 7px;
   text-transform: capitalize;
+}
+
+.todo .text-input {
+  display: none;
+  outline: none;
+  border: none;
+  padding: 3px 0px;
+  border-top: 1px solid #ddd;
+  border-bottom: 1px solid #ddd;
 }
 
 .todoList .add {
@@ -121,6 +131,7 @@ html, body {
 .add-list {
   text-align: center;
   width: 100%;
+  margin-top: 20px;
   margin-bottom: 20px;
 }
 

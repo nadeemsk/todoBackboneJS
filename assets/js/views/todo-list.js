@@ -44,9 +44,9 @@ var TodoListView = Backbone.View.extend({
 
   editTitle: function() {
     var id = this.model.id;
-    var el = document.getElementById('title-' + id);
-    el.innerHTML = '<input type="text" class="title-edit" listid="' +
-      id + '" id="list-title-edit-' + id + '"/>';
+    console.log(this.$el.children('.title').children('.title-edit'));
+    this.$el.children('.title').children('p').hide();
+    this.$el.children('.title').children('.title-edit').show();
     document.getElementById('list-title-edit-' + id).focus();
   },
 
@@ -63,28 +63,43 @@ var TodoListView = Backbone.View.extend({
         console.log('Setting new title "' + text + '" for list ' + listId);
         this.model.set('title', text);
         this.model.save();
-        this.render();
+        this.$el.children('.title').children('p').show();
+        this.$el.children('.title').children('.title-edit').hide();
+        this.renderTitle(text);
       }
     }else if(!e.keyCode){
-      this.render();
+      this.$el.children('.title').children('p').show();
+      this.$el.children('.title').children('.title-edit').hide();
     }
+  },
+
+  renderTitle: function(title) {
+    this.$el.children('.title').children('p').html(title);
   },
 
   render: function() {
     this.$el.html(this.template(this.model.attributes));
-    var that = this;
+    var that = this,
+    todos = this.model.attributes.todos;
+    var t1 = {"todos":[{"_id":"5784a3508aea5f117c8119b6","listId":"5784a3448aea5f117c8119b5","text":"shapoo","editing":false,"done":true,"__v":0},{"_id":"5784a3548aea5f117c8119b7","listId":"5784a3448aea5f117c8119b5","text":"bucket","editing":false,"done":true,"__v":0},{"_id":"5784a35f8aea5f117c8119b8","listId":"5784a3448aea5f117c8119b5","text":"spoons","editing":false,"done":false,"__v":0},{"_id":"5784a3638aea5f117c8119b9","listId":"5784a3448aea5f117c8119b5","text":"pillows","editing":false,"done":false,"__v":0},{"_id":"5784c7da9097f43684d2253f","listId":"5784a3448aea5f117c8119b5","text":"Another none do","editing":false,"done":false,"__v":0}]};
 
-    this.model.attributes.todos.forEach(function(model) {
-      Todos.fetch({data: { id: model }}).done(function(data) {
-        var newTodo = new TodoModel(data);
+    var context = $.ajax({
+      url: baseURL + 'todos',
+      data: { todos: todos },
+      type: 'GET',
+    });
+
+    context.done(function(data) {
+      for (var i = 0; i < data.todos.length; i++) {
+        var model = data.todos[i];
+        var newTodo = new TodoModel(model);
         var newTodoView = new TodoView({
           model: newTodo,
         });
 
         that.$el.children('.todos').append(newTodoView.render().el);
-      });
-    }.bind(this));
-
+      }
+    });
     return that;
   }
 
